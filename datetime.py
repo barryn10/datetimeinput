@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 year = input("Enter Year\n")
 month = input("Enter Month using integer values\n")
@@ -108,14 +108,15 @@ fulldate = str(year) + "-" + str(month) + "-" + str(day) + " " + str(hour) + ":"
 
 print fulldate
 
-'''
-from datetime import datetime
+
+
 expectedformat = '%Y-%m-%d %H:%M:%S'
 dt = None
 try:
-    dt = datetime.strptime('2019-05-03 22:04:00', expectedformat)
-except ValueError:
+    dt = datetime.strptime(fulldate, expectedformat)
+except Exception as e:
     print('Invalid datetime')
 
-print(dt)
-'''
+unix = dt.timestamp()
+print(unix)
+
